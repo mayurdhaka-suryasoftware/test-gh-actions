@@ -12,4 +12,6 @@ jobs:
         run: |
           echo done ${destination}
         env:
-         'platform=iOS Simulator,OS=12.2,name=iPhone X'
+         platform: iOS Simulator
+         OS: 12.2
+         name: iPhone X
