@@ -1,17 +1,19 @@
 name: CI
 
-on: [push]
-
+on: pull_request
+name: Test
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
+  test:
+    name: Test
+    runs-on: macOS-latest
+    strategy:
+        matrix:
+          destination: ['platform=iOS Simulator,OS=12.2,name=iPhone X', 'platform=tvOS Simulator,OS=12.2,name=Apple TV 4K']
     steps:
-    - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Build and test
+        run: |
+          echo done ${destination}
+        env:
+         destination: ${{ matrix.destination }}
