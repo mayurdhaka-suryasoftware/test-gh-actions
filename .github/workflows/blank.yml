@@ -5,9 +5,6 @@ jobs:
   test:
     name: Test
     runs-on: macOS-latest
-    strategy:
-        matrix:
-          destination: ['platform=iOS Simulator,OS=12.2,name=iPhone X', 'platform=tvOS Simulator,OS=12.2,name=Apple TV 4K']
     steps:
       - name: Checkout
         uses: actions/checkout@master
@@ -15,4 +12,4 @@ jobs:
         run: |
           echo done ${destination}
         env:
-         destination: ${{ matrix.destination }}
+         'platform=iOS Simulator,OS=12.2,name=iPhone X'
