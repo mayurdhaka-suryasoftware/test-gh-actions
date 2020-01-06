@@ -9,7 +9,7 @@ jobs:
 #      - name: Checkout
 #        uses: actions/checkout@master
       - name: XcodeGen
-        run: xcodegen
+        run: ./xcodegen
       - name: Build and test
         run: |
           xcodebuild build -destination "name=iPhone 11 Pro" -scheme RxUserDefaults_iOS
