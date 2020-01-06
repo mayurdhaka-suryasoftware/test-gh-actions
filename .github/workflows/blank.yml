@@ -10,8 +10,8 @@ jobs:
         uses: actions/checkout@master
       - name: List Dir
         run: ls -al
-      - name: XcodeGen
-        run: ./xcodegen
+#      - name: XcodeGen
+#        run: ./xcodegen
       - name: Build and test
         run: |
           xcodebuild build -destination "name=iPhone 11 Pro" -scheme RxUserDefaults_iOS
