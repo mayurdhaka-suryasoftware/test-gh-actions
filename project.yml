@@ -21,9 +21,6 @@ targets:
         buildPhase: headers
         type: folder
         headerVisibility: public
-    dependencies:
-      - carthage: RxSwift
-      - carthage: RxCocoa
   RxUserDefaults-Tests:
     type: bundle.unit-test
     platform: [iOS, tvOS]
@@ -36,3 +33,11 @@ targets:
       - carthage: RxCocoa
       - carthage: RxTest
       - carthage: RxBlocking
+  TestApp:
+      type: application
+      platform: iOS
+      scheme: {}
+      sources:
+        - TestApp
+      dependencies:
+        - framework: RxUserDefaults
