@@ -6,14 +6,13 @@ options:
 targets:
   RxUserDefaults:
     type: framework
-    platform: [iOS, tvOS]
+    platform: iOS
     settings:
-      TVOS_DEPLOYMENT_TARGET: 10.2
       IPHONEOS_DEPLOYMENT_TARGET: 10.3
       PRODUCT_BUNDLE_IDENTIFIER: "de.number42.RxUserDefaults"
     scheme:
       testTargets:
-        - RxUserDefaults-Tests_$platform
+        - RxUserDefaults-Tests
     sources:
       - Sources
       - Supporting Files
@@ -21,14 +20,17 @@ targets:
         buildPhase: headers
         type: folder
         headerVisibility: public
+    dependencies:
+        - carthage: RxSwift
+        - carthage: RxCocoa
   RxUserDefaults-Tests:
     type: bundle.unit-test
-    platform: [iOS, tvOS]
+    platform: iOS
     scheme: {}
     sources:
       - Tests
     dependencies:
-      - target: RxUserDefaults_$platform
+      - target: RxUserDefaults
       - carthage: RxSwift
       - carthage: RxCocoa
       - carthage: RxTest
