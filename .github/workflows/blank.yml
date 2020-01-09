@@ -8,13 +8,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
-      - name: List Dir
-        run: ls -al
-#      - name: XcodeGen
-#        run: ./xcodegen
-      - name: Build and test
+      - name: Build
         run: |
           xcodebuild build -destination "name=iPhone 11 Pro" -scheme RxUserDefaults
+      - name: Test
+             run: |
+               xcodebuild test -destination "name=iPhone 11 Pro" -scheme TestApp
         env:
          platform: iOS Simulator
          OS: 12.2
