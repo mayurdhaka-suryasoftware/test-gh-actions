@@ -12,8 +12,8 @@ jobs:
         run: |
           xcodebuild build -destination "name=iPhone 11 Pro" -scheme RxUserDefaults
       - name: Test
-             run: |
-               xcodebuild test -destination "name=iPhone 11 Pro" -scheme TestApp
+        run: |
+           xcodebuild test -destination "name=iPhone 11 Pro" -scheme TestApp
         env:
          platform: iOS Simulator
          OS: 12.2
